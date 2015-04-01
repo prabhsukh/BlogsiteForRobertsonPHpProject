@@ -20,7 +20,7 @@
 <br>
 <input type="text" name="email" placeholder="Email">
 <br>
-<input type="text" name="phoneno" placeholder="Phoneno">
+<input type="text" name="phoneno" placeholder="Phone">
 <br>
 <input type="text" name="city" placeholder="City">
 <br>
