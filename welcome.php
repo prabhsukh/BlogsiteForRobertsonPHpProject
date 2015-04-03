@@ -1,7 +1,10 @@
-<html>
+
+ 
+ 
+ 
+ <html>
     <head>
-        <title>
-            
+        <title>      
         </title>
     </head>
     <body>
@@ -10,15 +13,15 @@
 	echo start_page("Welcome!");
 	echo start_body();
 	echo use_navigation();
-?>
  
-    <form>
-<br>
-<input type="text" name="firstname" placeholder="First name">
-<br>
-<input type="text" name="lastname" placeholder="Last name"><br>
-<input type="submit" value="Login">
-</form>
+session_start();
+if(!isset($_SESSION["UserName"])){
+    header("location:loginpage.php");
+    
+}
+?>
+        <h1> successfully Log in !</h1>
+    
    
 <?php 
         echo after_content();
