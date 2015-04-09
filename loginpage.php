@@ -1,41 +1,38 @@
 
         <?php
-	require_once 'Layout.php';
+        session_start();
+	require_once 'layout2.php';
 	echo start_page("Welcome!");
 	echo start_body();
 	echo use_navigation();
-        
-      
-session_start();
-   include "config.php";
+       
+   include 'config.php';
+   
    if (isset($_POST['UserName']) && isset($_POST['Password'])) {
         $myusername = $_POST['UserName']; 
- $mypassword = $_POST['Password']; 
+       $mypassword = $_POST['Password']; 
 
-$myusername = stripslashes($myusername);
-$mypassword = stripslashes($mypassword);
-$myusername = mysql_real_escape_string($myusername);
-$mypassword = mysql_real_escape_string($mypassword);
-$sql="SELECT * FROM $tbl_name WHERE UserName='$myusername' and Password='$mypassword'";
-$result=mysql_query($sql);
+     $myusername = stripslashes($myusername);
+     $mypassword = stripslashes($mypassword);
+     $myusername = mysql_real_escape_string($myusername);
+     $mypassword = mysql_real_escape_string($mypassword);
+     $sql="SELECT * FROM $tbl_name WHERE UserName='$myusername' and Password='$mypassword'";
+    $result=mysql_query($sql);
+    $count=mysql_num_rows($result);
 
-
-$count=mysql_num_rows($result);
-
-if($count == 1)
+    if($count == 1)
     {
-$_SESSION["UserName"] = $_POST['UserName'];
-header("location:welcome.php");
-}
-else {
-    
-header ("loginpage.php");
-echo "NO Username or Password provided";
+   // $_SESSION["UserID"] = $_POST['UserID'];
+     $_SESSION["UserName"] = $_POST['UserName'];
+    header("location:profile.php");
     }
-   }
-        
-         
-        
+    else {
+    
+    header ("loginpage.php");
+   echo '<span style="color:red;text-align:center;">Wrong Username or Password provided!</span>';
+    }
+   } 
+     
 ?>
       <html>
     <head>
@@ -48,7 +45,7 @@ echo "NO Username or Password provided";
 <td>
 <table width="100%" border="0" cellpadding="3" cellspacing="1">
 <tr>
-    <td colspan="3"><strong> <h2>User Login</h2> </strong></td>
+    <td colspan="3"><strong> <h2><a href="#">User Login</a></h2> </strong></td>
 </tr>
 <tr>
 
@@ -65,6 +62,13 @@ echo "NO Username or Password provided";
 
 <td>&nbsp;</td>
 <td><input type="submit" name="Submit" value="Login"></td>
+</tr>
+<tr>
+    <td></td>
+    <td>
+       <a href="registerpage.php">Create a New Account</a>
+    </td>
+    <td></td>
 </tr>
 </table>
 </td>

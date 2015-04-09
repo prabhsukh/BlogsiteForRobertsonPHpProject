@@ -29,20 +29,20 @@
                                                 <li><a href="#" accesskey="5" title="">Contact</a></li>
                                         </ul>
                                 </div>
-                        </div>
-                        <!-- end header -->
+                      
+                        <!-- end header 
                         <div id="gallery">
                                 <div id="top-photo">
                                         <p><a href="#"><img src="images/img08.jpg" alt="" width="830" height="300" /></a></p>
                                 </div>
-                        </div>
+                        </div>-->
 
                         <!-- start page -->
                         <div id="page">
-                                <!-- start content -->
+                                <!-- start content-->
                                 <div id="content">
                                         <div class="post">
-                                                <h1 class="title">Welcome to our Blog Site</h1>
+                                               
 EOT;
 	}
 	
@@ -95,6 +95,7 @@ EOT;
                         </li>
                 </ul>
         </div>
+                      </div>
         <!-- end sidebar -->
     </div>
     <div style="clear: both; height: 30px">&nbsp;</div>

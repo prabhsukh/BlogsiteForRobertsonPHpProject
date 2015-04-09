@@ -1,5 +1,4 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -22,6 +21,7 @@
 			<li><a href="#" accesskey="3" title="">Photos</a></li>
 			<li><a href="#" accesskey="4" title="">About</a></li>
 			<li><a href="#" accesskey="5" title="">Contact</a></li>
+ 
 		</ul>
 	</div>
 </div>
@@ -47,7 +47,10 @@
 	<div id="sidebar">
 		<ul>
 			<li>
-                            <h2><a href="login.php">Login here >>></a></h2>
+                           
+                        <li>
+                           echo "<h2><a href='loginpage.php'>Login here</a></h2>";
+ 
 				<!-- <ul>
 				 <li><a href="#">Aliquam libero</a></li>
 				      <li><a href="#">Consectetuer adipiscing elit</a></li>
@@ -82,3 +85,14 @@
 </div>
 </body>
 </html>
+                          <?php
+if(isset($_SESSION['UserName']) && $_SESSION['UserName']!="")
+{
+      echo("<a href='logoutpage.php'>Logout</a> ");
+      echo($_SESSION['UserName']);
+}
+else
+{
+      echo("<a href='loginpage.php'>Login</a> ");
+}
+?>
