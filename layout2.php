@@ -4,11 +4,13 @@
 		return "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
                         <html xmlns='http://www.w3.org/1999/xhtml'>
                         <head>
-                        <meta http-equiv='content-type' content='text/html; charset=utf-8' />
-                        <title>".$title."</title>
-                        <link href='default.css' rel='stylesheet' type='text/css' media='screen' />
+                            <meta http-equiv='content-type' content='text/html; charset=utf-8' />
+                            <title>'.$title.'</title>
+                            <link href='default.css' rel='stylesheet' type='text/css' media='screen' />
+                            <script src='js/jquery-2.1.3.js' type='text/javascript'></script>
+
                         </head>";
-                                }
+        }
 
         function start_body()
         {
@@ -23,9 +25,9 @@
                                 <div id="menu">
                                         <ul>
                                                 <li class="active"><a href="#" accesskey="1" title="">Home</a></li>
-                                                <li><a href="#" accesskey="2" title="">Blog</a></li>
+                                                <li><a href="BlogList.php" accesskey="2" title="">Blog</a></li>
                                                 <li><a href="#" accesskey="3" title="">Photos</a></li>
-                                                <li><a href="#" accesskey="4" title="">About</a></li>
+                                                <li><a href="#" accesskey="4" title="">about</a></li>
                                                 <li><a href="#" accesskey="5" title="">Contact</a></li>
                                         </ul>
                                 </div>
@@ -104,9 +106,35 @@ EOT;
             return $result;
 	}
 	
-	function use_navigation()
+	function use_navigation() { return ""; }
+        
+        function use_GetPicture()
 	{
-		return "";
+            #HARD CODED A 1 in BLOGID, have to fix later!!s
+		return <<<EOT
+                        <script type="text/javascript">
+$(document).ready(function() {
+
+	$.post("getpicture.php", { pic: "1"}, function( data ) {
+	  $("#picture").html( data );
+	});
+	
+	$("#picture").on("click",".get_pic", function(e){
+		var picture_id = $(this).attr('data-id');
+		$("#picture").html("<div style'margin:50px auto;width:50px;'><img src='images/loader.gif' /></div>");
+		$.post( "getpicture.php", { pic: picture_id}, function( data ) {
+			$("#picture").html( data );
+		});
+		return false;
+	});
+	
+});
+</script>
+
+<div id="picture" align="center"> 
+   <!-- pictures will appear here --> 
+</div>
+EOT;
 	}
 	
 	function use_admin_navigation()

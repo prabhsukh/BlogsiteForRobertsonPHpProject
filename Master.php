@@ -17,9 +17,9 @@
 	<div id="menu">
 		<ul>
 			<li class="active"><a href="#" accesskey="1" title="">Home</a></li>
-			<li><a href="#" accesskey="2" title="">Blog</a></li>
+                        <li><a href="BlogPage.php" accesskey="2" title="">Blog</a></li>
 			<li><a href="#" accesskey="3" title="">Photos</a></li>
-			<li><a href="#" accesskey="4" title="">About</a></li>
+                        <li><a href="#" accesskey="4" title="">about</a></li>
 			<li><a href="#" accesskey="5" title="">Contact</a></li>
  
 		</ul>
@@ -85,14 +85,5 @@
 </div>
 </body>
 </html>
-                          <?php
-if(isset($_SESSION['UserName']) && $_SESSION['UserName']!="")
-{
-      echo("<a href='logoutpage.php'>Logout</a> ");
-      echo($_SESSION['UserName']);
-}
-else
-{
-      echo("<a href='loginpage.php'>Login</a> ");
-}
-?>
+                       
+ 

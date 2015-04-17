@@ -201,7 +201,7 @@ img { border: none; }
 
 #sidebar {
 	float: right;
-	width: 240px;
+	width: 150px;
 }
 
 #sidebar ul {
@@ -255,5 +255,10 @@ img { border: none; }
 }
 
 .NiceFont {
-    
+          margin: 0;
+	padding: 0;
+	font-size: 16px;
+	color: white;
+          
 }
+

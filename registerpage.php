@@ -1,5 +1,5 @@
  <?php
-	require_once 'layout2.php';
+	require_once 'LoginRegisterLayout.php';
 	echo start_page("Welcome!");
 	echo start_body();
 	echo use_navigation();
@@ -41,26 +41,25 @@
                  ?>   
    
         <form action="registerpage.php" method="post">
-            <input type="text" name="FirstName" id="FirstName" placeholder="First Name">
+            <input type="text" name="FirstName" id="FirstName" placeholder="First Name" required="FirstName">
             <br><br>
-            <input type="text" name="LastName" id="LastName" placeholder="Last Name">
+            <input type="text" name="LastName" id="LastName" placeholder="Last Name" required="LastName">
             <br><br>
-            <input type="text" name="Gender" id="Gender" placeholder="Gender">
-         
+            <input type="text" name="Gender" id="Gender" placeholder="Gender" required="Gender">
             <br><br>
-            <input type="email" name="Email" id="Email" placeholder="Email">
+            <input type="email" name="Email" id="Email" placeholder="Email" required="Email">
             <br><br>
-            <input type="text" name="City" id="City" placeholder="City">
+            <input type="text" name="City" id="City" placeholder="City" required="City">
             <br><br>
-            <input type="text" name="PhoneNo" id="PhoneNo" placeholder="Phone No">
+            <input type="text" name="PhoneNo" id="PhoneNo" placeholder="Phone No" required="PhoneNo">
             <br><br>
-            <input type="text" name="UserName" id="UserName" placeholder="User Name">
+            <input type="text" name="UserName" id="UserName" placeholder="User Name" required="UserName">
             <br><br>
-            <input type="password" name="Password" id="Password" placeholder="Password">
+            <input type="password" name="Password" id="Password" placeholder="Password" required="Password">
               <br><br>
              
             <input type="submit" name="submit" value="Register">
-   
+ 
          </form>  
            </body>
        </html>

@@ -7,6 +7,7 @@
                         <meta http-equiv='content-type' content='text/html; charset=utf-8' />
                         <title>".$title."</title>
                         <link href='default.css' rel='stylesheet' type='text/css' media='screen' />
+                        <script src='js/jquery-2.1.3.js' type='text/javascript'></script>
                         </head>";
                                 }
 
@@ -23,9 +24,9 @@
                                 <div id="menu">
                                         <ul>
                                                 <li class="active"><a href="#" accesskey="1" title="">Home</a></li>
-                                                <li><a href="#" accesskey="2" title="">Blog</a></li>
+                                                <li><a href="BlogPage" accesskey="2" title="">Blog</a></li>
                                                 <li><a href="#" accesskey="3" title="">Photos</a></li>
-                                                <li><a href="#" accesskey="4" title="">About</a></li>
+                                                <li><a href="#" accesskey="4" title="">about</a></li>
                                                 <li><a href="#" accesskey="5" title="">Contact</a></li>
                                         </ul>
                                 </div>

@@ -1,5 +1,6 @@
-create database dbGroupProject;
-  #drop database dbGroupProject;
+ drop database dbGroupProject;
+ create database dbGroupProject;
+
 use dbGroupProject;
 
 CREATE TABLE tbAccessLevel (
@@ -58,13 +59,46 @@ CREATE TABLE tbBlog (
     FOREIGN KEY (UserID) REFERENCES tbUser(UserID),
 	BlogAccessID int,
     FOREIGN KEY (BlogAccessID) REFERENCES tbBlogAccess(BlogAccessID),
-	BlogMessage text NOT NULL,
+	BlogMessage text(1000) NOT NULL,
 	primary key (BlogID)) ;
 ALTER TABLE tbBlog auto_increment=1;
 INSERT INTO tbBlog (UserID, BlogAccessID, BlogMessage) VALUES
-	(2,1, 'Good Morning !!!!'),
-	(3,2, 'How are you ?\r\nHope you feel good !!');
-
+	(2,1, 'Good Morning Hello PHP wORLd!!Pr
+    ogramming IS FUN FUN FUN !!!!!'),
+	(3,2, 'How are you ?\r\n Hope you feel good !!'),
+ (5,1, '<br><img src="Pic//imgblog1.jpg"/><h2>If you can read this</h2><p>you need to go check out the newest updates for Microsoft Certification.\n\http://www.microsoft.com/learning/en-us/exam-98-361.aspx
+	The link above is for a specific tech certificate and it is likely the most important one you all need to concentrate on.  Ideally you want to be able to do all the material covered in this exam by the time you finish this course.
+	Note: We dont cover everything in it, so you do need to study external material to pass the exam, however, if you do good in the course, you wont have a problem filling in the missing pieces!
+	Check out this study guide for the exam, how far can you get in answering all the questions?ftp://ftp.certiport.com/Marketing/MTA/docs/MTA_SSG_SoftDev_individual_without_crop.pdf</p>'),
+	(6,1,'<h2>PHP Tutorial – Language Introduction</h2><p>Before we can start coding you first need to know some basics. 
+    In this PHP language introduction tutorial you’ll find some descriptions of words you should know before you can start coding. Of course we will also look at where you can download PHP, MySQL and Apache.\n\
+    The PHP programming language is a server-side HTML embedded scripting language.\n\
+    Let‘s depict the sentence. The PHP language runs on the server-side. This means that the execution (read starting) of the scripts are done on the server where the web-site is hosted. HTML embedded means that you can use PHP statements (read a piece of PHP code) from within an HTML code. PHP files are returned to the browser as plain HTML.\n\
+    <h3>What do you need?</>\n\Access to a web server (like Apache).\n\PHP and MySQL should be installed on the web server.
+    <p>The easiest way is to install WAMP if you have a Windows machine and LAMP if you have a Linux machine. (WAMP = Windows Apache MySQL PHP and LAMP = Linux Apache MySQL PHP.) \n\
+    These packages install everything you need. Read the install manual of these packages for instructions. After installation you should have access to http://localhost in your browser.'),
+    (6,1,'<h2>PHP Basic Scripting Language Syntax</h2><p>The PHP statements or scripting blocks always start with <?php and end with ?>. You can start a PHP block anywhere in a .php file.\n\
+     <p>A PHP file doesn’t have to include HTML tags, but in most cases it does. Of course you need a starting point so in most cases you’ll have a normal html file and from this file you’ll call some PHP statement or include another PHP file.
+	Let’s start with a simple example (copy the following code, open your favorite text-editor (we like to use Notepad++), paste the code and save it as index.php):</p>\n\
+    <img src="Pic//phpsyntax2.jpg"/>\n\<p>The file that you just have created should be placed in the document root of your web-server (the directory that is called WWW.) \n\
+    After you’ve placed the file in the document root you can start a browser and type http://localhost (or whatever domain you use.) The text ‘Hello World, this is my first PHP program!’ should appear (without the ‘ ’ of course.) \n\
+    You have just created your first PHP program.</p>\n\<h3>Using Comments in PHP</h3>\n\
+    <p>Before we end this PHP scripting language syntax tutorial we want to explain comments in PHP, because you should always use comments in your programs. Even if you don’t give the programs you create to someone else, making use of comments is very important!\n\
+    OK, that’s enough on the importance of comment-lines, let’s see with an example how to use comment-line in PHP:</p>
+	<img src="Pic//php_syntax_img3.jpg"/>'),
+    (7,1,'<h2>GitHub - Code Check in - Check Out system</h2>Useful Command lines for DOS:-<p>Want to use a project with multiple people contributing to the same code base?  Why not use an awesome open-source technology called: GitHub. Goto the site and set yourself up with a registered username and password!\n\
+	Download the latest version of the product here: http://git-scm.c/om/downloads\n\
+	When you install, be sure to pick the option with the warnings that says to install unix/linux commands onto your windows command prompt.\n\
+	I suggest reading the setup information that GitHub provides at: https://help.github.com/articles/set-up-git\n\,<p/>
+	<p>Once installed here are a few useful commands:</p><ul><li>git clone "insert address here" (getting the project)</li><li>git status (checking any changes between working directory and staging area)</li>
+	<li>git add -A (adds all files to a staging area)</li><li>git add -u (Adds all modified files to the staging area)</li><li>git commit (commits the work from the staging area to the local repository)</li><li>git commit -m "add comment here" (Commits the changes to the local repository with a comment)</li>
+	<li>git commit -am "add comments here" (Adds and commits to from the local repsoitory)</li><li>git push (local repsoitory pushes to the web)</li><li>git log (Shows all the list of commits)</li><li>git pull (gets the newest changes from the remote repository)</li></ul>'),
+	(8,3,'<br><p>Just a random funny picture of php coding!haha</p><img src="Pic//phpfunnyimg.jpg"/>'),
+    (9,1,'<p>I thought this would be useful to post this!</p><img src="Pic//list_of_all_phptags.jpg"/>'),
+    (10,1, '<h2>PHP Switch Statement</h2><p>Just as the PHP language “if…else” statement, you can use the “switch” statement to alter the flow of a program. In other words; conditional statements are used to perform actions on different conditions.\n\ 
+    The switch statement is used to select one of many blocks of code to be executed.\n\Let’s look at a switch example:</p><img src="Pic//switchcasephp.jpg"/><p>We say the variable $X is 3. In the switch statement the blocks of code start with case or default. The case statements end with break.\n\
+    If the value of the case is equal with $X then execute the line between case and break.\n\ The break marks the end of one case statement and is used to prevent the code from running into the next case. If non-of the case statement matches with $X then the default code block is executed.</p>');
+    
 CREATE TABLE tbBlogAttachment (
 	BlogAttachmentID int NOT NULL auto_increment,
 	BlogID int,
@@ -75,8 +109,9 @@ CREATE TABLE tbBlogAttachment (
 );
 ALTER TABLE tbBlogAttachment auto_increment=1;
 INSERT INTO tbBlogAttachment (BlogID, FileName, FilePath) VALUES
-	(1, 'AwesomeOne', 'Img11'),
-	(2, 'AwesomeTwo', 'img12.jpg');
+	(1, 'Blog Picture 1', 'Pic/img1.jpg'),
+	(1, 'Blog Picture 1 Part 2', 'Pic/img2.jpg'),
+	(2, 'Blog Picture 2', 'Pic/img3.jpg');
 
 create TABLE tbResponse1
 (
@@ -228,19 +263,20 @@ CALL spGetBlogAttachmentByID(2);
     values (firstname,lastname,gender,email,city,phoneno,username,password,profileimageUrl,accesslevelid);
      end $$
      DELIMITER ;
-	call spAddUser("sonni","monny","male","sonny@yahoo.com","calgary","309-345-4512","sonni1","12345",'img10.jpg',2);
+	call spAddUser("sonni","monny","male","sonny@yahoo.com","calgary","309-345-4512","sonni1","12345",'Pic//img10.jpg',2);
        
        /* tbBlog insert procdure*/
        delimiter $$
        create procedure spAddBlog 
        (in  user_id int,
-        in blogmessage text)
+		in blog_access_id int,
+        in blogmessage text(1000))
        begin   
-            insert into tbBlog (UserID,BlogMessage)
-					  values(user_id,blogmessage);
+            insert into tbBlog (UserID, BlogAccessID,BlogMessage)
+					  values(user_id, blog_access_id,blogmessage);
                        end $$
                        delimiter ;
-       call spAddBlog(4,"Nice to see you here");
+       call spAddBlog(4,3,"Nice to see you here");
        
        /* tbAttachement insert procedure*/
        DELIMITER $$
@@ -284,19 +320,22 @@ CALL spGetBlogAttachmentByID(2);
           Password= password where UserID = user_id;
           end $$
           DELIMITER ;
-    call spUpdateUser(10,"joe","smith","male","joe#yahoo.com","Absford","209-342-8989","joe1","12345",'img11.jpg',2);
+    call spUpdateUser(10,"joe","smith","male","joe#yahoo.com","Absford","209-342-8989","joe1","12345",'Pic//img10.jpg',2);
            
               /* tbBlog Update procdure*/
        delimiter $$
-       create procedure spUpdateBlogByID (in  user_id int,
-       in blogmessage text)
+       create procedure spUpdateBlogByID 
+       (in  user_id int,
+        in blog_access_id int,
+       in blogmessage text(1000))
        begin   
             update  tbBlog set UserID= user_id,
-                               BlogMessage=blagmessage
+								BlogAccessID = blog_access_id,
+                               BlogMessage=blogmessage
 					     where UserID=user_id;
                        end $$
                        delimiter ;
-       call spUpdateBlogByID(3,"Nice to see you here");
+       call spUpdateBlogByID(3,4,"Nice to see you here");
        
        /* tbAttachement update procedure*/
        DELIMITER $$
@@ -313,7 +352,7 @@ CALL spGetBlogAttachmentByID(2);
                                          where  BlogAttachmentID= blogattachment_id;
 				end $$
                 DELIMITER ;
-		call spUpdateBlogAttachmentByID(2,1,"nice one","img5.jpg");
+		#call spUpdateBlogAttachmentByID(2,1,"nice one","img5.jpg");
         
          
                         /* Delete Store procedures  */
@@ -347,4 +386,6 @@ CALL spGetBlogAttachmentByID(2);
         where BlogID= blog_id;
 	 end $$
   DELIMITER ;
-    CALL spDeleteBlogByID(3);
+   # CALL spDeleteBlogByID(3);
+	
+

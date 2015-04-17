@@ -1,7 +1,7 @@
 
         <?php
         session_start();
-	require_once 'layout2.php';
+	require_once 'LoginRegisterLayout.php';
 	echo start_page("Welcome!");
 	echo start_body();
 	echo use_navigation();
@@ -9,28 +9,26 @@
    include 'config.php';
    
    if (isset($_POST['UserName']) && isset($_POST['Password'])) {
-        $myusername = $_POST['UserName']; 
-       $mypassword = $_POST['Password']; 
+    $myusername = $_POST['UserName']; 
+    $mypassword = $_POST['Password']; 
 
-     $myusername = stripslashes($myusername);
-     $mypassword = stripslashes($mypassword);
-     $myusername = mysql_real_escape_string($myusername);
-     $mypassword = mysql_real_escape_string($mypassword);
-     $sql="SELECT * FROM $tbl_name WHERE UserName='$myusername' and Password='$mypassword'";
+    $myusername = stripslashes($myusername);
+    $mypassword = stripslashes($mypassword);
+    $myusername = mysql_real_escape_string($myusername);
+    $mypassword = mysql_real_escape_string($mypassword);
+    $sql="SELECT * FROM $tbl_name WHERE UserName='$myusername' and Password='$mypassword'";
+
     $result=mysql_query($sql);
     $count=mysql_num_rows($result);
-
-    if($count == 1)
-    {
-   // $_SESSION["UserID"] = $_POST['UserID'];
-     $_SESSION["UserName"] = $_POST['UserName'];
-    header("location:profile.php");
+    
+    while ($row = mysql_fetch_assoc($result)) {
+        $_SESSION["UserID"] = $row['UserID'];
+        $_SESSION["UserName"] = $myusername;
+        header("location:profile.php");
     }
-    else {
     
     header ("loginpage.php");
-   echo '<span style="color:red;text-align:center;">Wrong Username or Password provided!</span>';
-    }
+    echo '<span style="color:red;text-align:center;">Wrong Username or Password provided!</span>';
    } 
      
 ?>
@@ -66,7 +64,7 @@
 <tr>
     <td></td>
     <td>
-       <a href="registerpage.php">Create a New Account</a>
+        <a href="registerpage.php">Create a New Account</a>
     </td>
     <td></td>
 </tr>
