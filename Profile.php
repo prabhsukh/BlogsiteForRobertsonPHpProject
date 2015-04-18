@@ -4,7 +4,6 @@
     echo start_page("Welcome!");
     echo start_body();
     echo use_navigation();
-    session_start();
     
     $servername = "localhost";
     $username = "root";
@@ -64,12 +63,12 @@ mysqli_close($conn);
          if(isset($_SESSION['UserID']) && $_SESSION['UserID'] == "$ProfileUserID")
             {
                  echo "<i><a href='list.php'>Edit Profile Information</a></i> ";
-                 echo "<br><br><i><a href='AddNewBlog.php'>Create Blog</a></i>";
+                 echo "<br><br><i><a href='EditBlog.php'>Create Blog</a></i>";
                   
             }
             else
             {
-                echo "<a href='Blog.php'>Visit To Blog Page >>></a> ";
+                echo "<a href='EditBlog.php'>Visit To Blog Page >>></a> ";
                   
             }
        

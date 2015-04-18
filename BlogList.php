@@ -5,7 +5,6 @@
     echo start_body();
     echo use_navigation();
     
-    session_start();
    
 $sql = mysql_query("SELECT * FROM tbBlog b JOIN tbUser u ON u.UserID = b.UserID");
 $nr = mysql_num_rows($sql); 

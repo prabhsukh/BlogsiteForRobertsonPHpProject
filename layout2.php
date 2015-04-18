@@ -1,4 +1,14 @@
 <?php
+    session_start();
+    $UserString = "";
+    $UserID = "";
+    
+    if (isset($_SESSION["UserID"])) {
+        $UserID = $_SESSION["UserID"];
+        $UserString = "?UserID=".$UserID;
+    }
+    
+    
 	function start_page($title)
 	{
 		return "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
@@ -14,6 +24,8 @@
 
         function start_body()
         {
+            global $UserString;
+            
                 return <<<EOT
                         <body>
                         <!-- start header -->
@@ -24,7 +36,7 @@
                                 </div>
                                 <div id="menu">
                                         <ul>
-                                                <li class="active"><a href="#" accesskey="1" title="">Home</a></li>
+                                                <li class="active"><a href="BlogList.php$UserString" accesskey="1" title="">Home</a></li>
                                                 <li><a href="BlogList.php" accesskey="2" title="">Blog</a></li>
                                                 <li><a href="#" accesskey="3" title="">Photos</a></li>
                                                 <li><a href="#" accesskey="4" title="">about</a></li>
