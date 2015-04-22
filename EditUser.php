@@ -1,5 +1,6 @@
 <?php
-        session_start();
+        //
+        //session_start();
 	require_once 'Layout.php';
 	echo start_page("edit here!");
 	echo start_body();
@@ -29,6 +30,7 @@ if(isset($_GET['UserID']))
    }
 $query1=mysql_query("select * from tbUser where UserID='$UserID'");
 $query2=mysql_fetch_array($query1);
+
 
 
 ?>

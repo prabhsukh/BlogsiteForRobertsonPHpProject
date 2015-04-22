@@ -1,12 +1,10 @@
- drop database dbGroupProject;
- create database dbGroupProject;
-
-use dbGroupProject;
+    drop database dbGroupProject;
+    create database dbGroupProject;
+	use dbGroupProject;
 
 CREATE TABLE tbAccessLevel (
     AccessLevelID int NOT NULL auto_increment,
 	Name varchar(20) NOT NULL,
-    
 	Primary key (AccessLevelID)
 );
 ALTER TABLE tbAccessLevel  auto_increment=1;
@@ -30,16 +28,16 @@ Create TABLE tbUser (
 	primary key (UserID));
 ALTER TABLE tbUser auto_increment=1;
 INSERT INTO tbUser (FirstName, LastName, Gender, Email, City, PhoneNo, UserName, Password,ProfileImageUrl,AccessLevelID) VALUES
-	('scott', 'wachal', 'male', 'scott34@gmail.com', 'winnipeg', '204-345-7890', 'scott1', '12345','Pic/img.jpg',1),
-	('prabh', 'jot', 'female', 'jot14@rocketmail.com', 'winnipeg', '209-342-7667', 'prabh1', '12345','Pic/img1.jpg',1),
-	('Sam', 'Smith', 'male', 'sam45@yahoo.com', 'Calgary', '432-658-8796','sam1', '12345','Pic/img2.jpg',2),
-	('john', 'sara', 'male','j@ymail.com', 'Surrey', '604-657-0987', 'john1','12345','Pic/img3.jpg',2),
-	('Cathy', 'shaw', 'female', 'Cathy@hotmail.com', 'vancouver', '604-982-4862','cathy1', '12345','Pic/img4.jpg',2),
-	('surinder ', 'kaur', 'female', 'sur@facebook.com', 'winnipeg', '209-890-3423', 'suri1', '12345','Pic/img5.jpg',2),
-	('Ruhi', 'Rao', 'male','Ruhi@yahoomail.com', 'winnipeg', '204-342-2323','ruhi1', '12345','Pic/img6.jpg',2),
-	('mahi', 'sharama', 'female','mahi@robertsoncollege.net', 'Brandon', '342-980-0909','mahi1', '12345','Pic/img7.jpg',2),
-	('rajwinder','sharama', 'female', 'mahi@robertsoncollege.net', 'calgary','432-980-0909','raj1','12345','Pic/img8.jpg',2),
-	('alex', 'smith', 'male','alex@yahoo.com', 'Brandon', '657-657-8111','alex1','12345','Pic/img9.jpg',2);
+	('Scott', 'Wachal', 'Male', 'scott34@gmail.com', 'Winnipeg', '204-345-7890', 'scott1', '12345','Pic/img.jpg',1),
+	('Prabhjot', 'Kaur', 'Female', 'jot14@yahoo.com', 'Winnipeg', '209-342-7667', 'prabh1', '12345','Pic/img1.jpg',1),
+	('Sam', 'Smith', 'Male', 'sam45@yahoo.com', 'Calgary', '432-658-8796','sam1', '12345','Pic/img2.jpg',2),
+	('Gurneal', 'Singh', 'Male','G@ymail.com', 'Surrey', '604-657-0987', 'Gurneal1','12345','Pic/img3.jpg',2),
+	('Cathy', 'shaw', 'Female', 'Cathy@hotmail.com', 'Vancouver', '604-982-4862','cathy1', '12345','Pic/img4.jpg',2),
+	('Surinder ','kaur', 'Female', 'sur@facebook.com', 'Winnipeg', '209-890-3423', 'suri1', '12345','Pic/img5.jpg',2),
+	('Ruhi', 'Rao', 'Female','Ruhi@yahoomail.com', 'Winnipeg', '204-342-2323','ruhi1', '12345','Pic/img6.jpg',2),
+	('Mahi', 'Sharama', 'Female','mahi@facebook.net', 'Brandon', '342-980-0909','mahi1', '12345','Pic/img7.jpg',2),
+	('Jayren','Bernasol', 'Female', 'jayren@ymail.com', 'Winnipeg','432-980-0909','jayren1','12345','Pic/img8.jpg',1),
+	('Alex', 'Smith', 'Male','alex@yahoo.com', 'Brandon', '657-657-8111','alex1','12345','Pic/img9.jpg',2);
 
 
     Create TABLE tbBlogAccess(
@@ -49,10 +47,8 @@ INSERT INTO tbUser (FirstName, LastName, Gender, Email, City, PhoneNo, UserName,
 ALTER TABLE tbBlogAccess auto_increment=1;
 INSERT INTO tbBlogAccess (BlogAccessName) VALUES 
 	('Public'),
-	('Private'),
-    ('Friends Only');
+	('Private');
   
-
 CREATE TABLE tbBlog (
 	BlogID int NOT NULL auto_increment,
 	UserID int,
@@ -93,7 +89,7 @@ INSERT INTO tbBlog (UserID, BlogAccessID, BlogMessage) VALUES
 	<p>Once installed here are a few useful commands:</p><ul><li>git clone "insert address here" (getting the project)</li><li>git status (checking any changes between working directory and staging area)</li>
 	<li>git add -A (adds all files to a staging area)</li><li>git add -u (Adds all modified files to the staging area)</li><li>git commit (commits the work from the staging area to the local repository)</li><li>git commit -m "add comment here" (Commits the changes to the local repository with a comment)</li>
 	<li>git commit -am "add comments here" (Adds and commits to from the local repsoitory)</li><li>git push (local repsoitory pushes to the web)</li><li>git log (Shows all the list of commits)</li><li>git pull (gets the newest changes from the remote repository)</li></ul>'),
-	(8,3,'<br><p>Just a random funny picture of php coding!haha</p><img src="Pic//phpfunnyimg.jpg"/>'),
+	(8,2,'<br><p>Just a random funny picture of php coding!haha</p><img src="Pic//phpfunnyimg.jpg"/>'),
     (9,1,'<p>I thought this would be useful to post this!</p><img src="Pic//list_of_all_phptags.jpg"/>'),
     (10,1, '<h2>PHP Switch Statement</h2><p>Just as the PHP language “if…else” statement, you can use the “switch” statement to alter the flow of a program. In other words; conditional statements are used to perform actions on different conditions.\n\ 
     The switch statement is used to select one of many blocks of code to be executed.\n\Let’s look at a switch example:</p><img src="Pic//switchcasephp.jpg"/><p>We say the variable $X is 3. In the switch statement the blocks of code start with case or default. The case statements end with break.\n\
@@ -109,58 +105,27 @@ CREATE TABLE tbBlogAttachment (
 );
 ALTER TABLE tbBlogAttachment auto_increment=1;
 INSERT INTO tbBlogAttachment (BlogID, FileName, FilePath) VALUES
-	(1, 'Blog Picture 1', 'Pic/img1.jpg'),
-	(1, 'Blog Picture 1 Part 2', 'Pic/img2.jpg'),
-	(2, 'Blog Picture 2', 'Pic/img3.jpg');
+	(1, 'img1.jpg', 'Pic/img1.jpg'),
+	(2, 'img2.jpg', 'Pic/img2.jpg');
 
-create TABLE tbResponse1
-(
-ResponseID int not null auto_increment,
-ResponseName varchar(20),
-primary key (ResponseID)
-);
-   ALTER TABLE tbResponse1 auto_increment=1;
-   insert into tbResponse1 (ResponseName)
-   values  
-   ('Accept'),
-   ('Ignore'),
-   ('Request');
 
-create TABLE tbMemberRequest
- (
-	MemberRequestID int NOT NULL auto_increment,
-	FromUserID int,
-    FOREIGN KEY (FromUserID) REFERENCES tbUser(UserID),
-	ToUserID int,
-    FOREIGN KEY (ToUserID) REFERENCES tbUser(UserID),
-	ResponseID int,
-    Foreign key (ResponseID) references tbResponse1(ResponseID),
-	primary key (MemberRequestID)
-);
-   ALTER TABLE tbMemberRequest auto_increment=1;
-   INSERT INTO tbMemberRequest (FromUserID, ToUserID,ResponseID) 
-     VALUES
-	(2,3, 1),
-	(3,1,2),
-    (1,2,3);
+
+
     
-    select * from tbAccessLevel;
-	select * from tbUser;
+    SELECT * FROM tbAccessLevel;
+	SELECT * FROM tbUser;
 	select * from tbBlog;
-	select * from tbMemberRequest;
 	select * from tbBlogAttachment;
     select * from tbBlogAccess;
-    select * from tbResponse1;
+   
     
      /* First Store Procedure */
 DELIMITER $$
-CREATE PROCEDURE spGetUserById
-(IN user_Id INT)
-begin
-SELECT *
-FROM tbUser
-WHERE UserID = user_Id;
-end$$
+    CREATE PROCEDURE spGetUserById
+	(IN user_Id INT)
+	begin
+	SELECT * FROM tbUser WHERE UserID = user_Id;
+	end$$
 DELIMITER ;
 
 CALL spGetUserById(2);
@@ -193,21 +158,8 @@ DELIMITER ;
 
 CALL spGetAccessLevelById(2);
 
-  /* forth* tbMemberRequest */
-       
- DELIMITER $$
-	CREATE PROCEDURE spGetMemberRequestById
-    (IN memberrequest_id INT)
-	begin
-	SELECT *
-	FROM tbMemberRequest
-	WHERE MemberRequestID = memberrequest_id;
-	end$$
-DELIMITER ;
 
-CALL spGetMemberRequestById(2);
-
-    /*fifth tbBlogAttachment */
+    /*forth tbBlogAttachment */
        
  DELIMITER $$
 	CREATE PROCEDURE spGetBlogAttachmentByID
@@ -221,7 +173,7 @@ DELIMITER ;
 
 CALL spGetBlogAttachmentByID(2);
 
-       /* sixth  tbBlogAccess */
+       /* fivth  tbBlogAccess */
        
  DELIMITER $$
      CREATE PROCEDURE spGetBlogAccessByID
@@ -232,18 +184,6 @@ CALL spGetBlogAttachmentByID(2);
 	 end $$
   DELIMITER ;
   CALL spGetBlogAccessByID(2);
-  
-  /* seventh tbResponse1 */
-  
-   DELIMITER $$
-     CREATE PROCEDURE spGetResponse1ByID
-     (in response_id int)
-     begin
-       select * from tbResponse1
-        where ResponseID= response_id;
-	 end $$
-  DELIMITER ;
-  CALL spGetResponse1ByID(2);
   
   /* insert StoreProcedures*/
            DELIMITER $$
@@ -263,7 +203,7 @@ CALL spGetBlogAttachmentByID(2);
     values (firstname,lastname,gender,email,city,phoneno,username,password,profileimageUrl,accesslevelid);
      end $$
      DELIMITER ;
-	call spAddUser("sonni","monny","male","sonny@yahoo.com","calgary","309-345-4512","sonni1","12345",'Pic//img10.jpg',2);
+	call spAddUser("Sonni","Monny","Male","Sonny@yahoo.com","calgary","309-345-4512","sonni1","12345",'Pic//img10.jpg',2);
        
        /* tbBlog insert procdure*/
        delimiter $$
@@ -279,7 +219,8 @@ CALL spGetBlogAttachmentByID(2);
        call spAddBlog(4,3,"Nice to see you here");
        
        /* tbAttachement insert procedure*/
-       DELIMITER $$
+    
+    DELIMITER $$
        create procedure spAddBlogAttachment
        (in blog_id int,
 		in filename varchar(40),
@@ -289,7 +230,7 @@ CALL spGetBlogAttachmentByID(2);
                             values(blog_id,filename,filepath);
 				end $$
                 DELIMITER ;
-		call spAddBlogAttachment(2,"Unique programming","img5.jpg");
+		call spAddBlogAttachment(2,"img5.jpg","Pic//img5.jpg");
         
                /* Update Store procedures  */
 		DELIMITER $$
@@ -320,7 +261,7 @@ CALL spGetBlogAttachmentByID(2);
           Password= password where UserID = user_id;
           end $$
           DELIMITER ;
-    call spUpdateUser(10,"joe","smith","male","joe#yahoo.com","Absford","209-342-8989","joe1","12345",'Pic//img10.jpg',2);
+    call spUpdateUser(10,"Joe","Smith","Male","joe@yahoo.com","Absford","209-342-8989","joe1","12345",'Pic//img10.jpg',2);
            
               /* tbBlog Update procdure*/
        delimiter $$
@@ -388,4 +329,12 @@ CALL spGetBlogAttachmentByID(2);
   DELIMITER ;
    # CALL spDeleteBlogByID(3);
 	
+    
+ SELECT tbBlog.BlogMessage,tbBlogAttachment.BlogAttachmentID  from tbBlog JOIN tbBlogAttachment where tbBlog.BlogID = tbBlogAttachment.BlogID;   
+    
+
+
+
+
+
 

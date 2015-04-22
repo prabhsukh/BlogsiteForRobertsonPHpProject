@@ -1,5 +1,5 @@
 <?php
-        session_start();
+       // session_start();
 	require_once 'Layout.php';
 	echo start_page("edit here!");
 	echo start_body();

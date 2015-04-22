@@ -1,5 +1,5 @@
 <?php
- session_start();
+ //session_start();
     include('config.php');
 
     $query1=mysql_query("select * from tbUser where UserName='".$_SESSION["UserName"]."'");

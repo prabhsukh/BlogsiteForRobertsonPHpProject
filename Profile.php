@@ -35,13 +35,13 @@
 
     if (mysqli_num_rows($result) > 0) {
         // output data of each row
-        $output = "<div class='NiceFont'>";
+        $output = "<div class='Fontclass'>";
 ?>
 <?php
 
         while($row = mysqli_fetch_assoc($result)) {
             $output .=
-            "<table><tr><td><img src='".$row["ProfileImageUrl"]."' width=190>"."</td><td>"."</td><td>"."</td>"."<td>".
+            "<table><tr><td><div class='Divitem'><img src='".$row["ProfileImageUrl"]."' width=200></div>"."</td><td>"."</td><td>"."</td>"."<td>".
                     
             "Full Name :"."<i>". $row["FirstName"]." ".$row["LastName"]."</i>". "<br>".
                     
@@ -63,7 +63,7 @@ mysqli_close($conn);
          if(isset($_SESSION['UserID']) && $_SESSION['UserID'] == "$ProfileUserID")
             {
                  echo "<i><a href='list.php'>Edit Profile Information</a></i> ";
-                 echo "<br><br><i><a href='EditBlog.php'>Create Blog</a></i>";
+                 echo "<br><br><i><a href='AddNewBlog.php'>Create Blog</a></i>";
                   
             }
             else

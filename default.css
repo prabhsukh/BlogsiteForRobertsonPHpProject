@@ -254,11 +254,35 @@ img { border: none; }
 	color: #C28C21;
 }
 
-.NiceFont {
+.Fontclass {
           margin: 0;
 	padding: 0;
 	font-size: 16px;
 	color: white;
           
 }
+.Divitem{
+    zoom:1;
+}
 
+.Divitem:hover {
+	-webkit-transform: scale(1.04);
+	   -moz-transform: scale(1.04);
+	    -ms-transform: scale(1.04);
+	     -o-transform: scale(1.04);
+	        transform: scale(1.04);
+}
+#text
+{
+border:2px solid #963;
+padding: 3px;
+height: 34px;
+width: 242px;
+transition: 800ms all ease;
+}
+#text:hover
+{
+width:280px;
+border:2px solid #963;
+transition: 800ms all ease;
+}
