@@ -1,6 +1,6 @@
 <?php
    include 'config.php';
-    require_once 'layout2.php';
+    require_once 'UploadLayOut.php';
     echo start_page("Welcome!");
     echo start_body();
     echo use_navigation();

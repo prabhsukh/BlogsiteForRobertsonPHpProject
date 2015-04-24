@@ -4,18 +4,13 @@
 	echo start_body();
 	echo use_navigation();
         ?>
- <html>
-    <head>
-        <title>      
-        </title>
-    </head>
-    <body>
+ 
         <h2><a href="">Sign Up here </a></h2>
         <?php       
-                include ('config.php');
+       include ('config.php');
     if(isset($_POST['FirstName'])&& isset($_POST['LastName']) && isset($_POST['Gender']) && isset($_POST['Email'])&&
-                    isset($_POST['City'])&& isset($_POST['PhoneNo'])&&
-                            isset($_POST['UserName'])&& isset($_POST['Password'])
+               isset($_POST['City'])&& isset($_POST['PhoneNo'])&&
+                     isset($_POST['UserName'])&& isset($_POST['Password'])
           
             ){    
               $firstname=$_POST['FirstName'];
@@ -27,7 +22,6 @@
               $username=$_POST['UserName'];
               $password=$_POST['Password'];
           
-              
               $sql="Insert into tbUser(FirstName,LastName,Gender,Email,City,PhoneNo,UserName,Password)         
     values ('$firstname','$lastname','$gender','$email','$city','$phoneno','$username','$password')";
               
@@ -61,8 +55,7 @@
             <input type="submit" name="submit" value="Register">
  
          </form>  
-           </body>
-       </html>
+         
     <?php
            echo after_content();
 	echo use_footer();

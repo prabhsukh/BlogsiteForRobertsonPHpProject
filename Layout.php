@@ -1,4 +1,5 @@
 <?php
+ 
 	function start_page($title)
 	{
 		return "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
@@ -10,7 +11,6 @@
                         <script src='js/jquery-2.1.3.js' type='text/javascript'></script>
                         </head>";
                                 }
-
         function start_body()
         {
                 return <<<EOT
@@ -23,11 +23,11 @@
                                 </div>
                                 <div id="menu">
                                         <ul>
-                                                <li class="active"><a href="#" accesskey="1" title="">Home</a></li>
-                                                <li><a href="BlogPage" accesskey="2" title="">Blog</a></li>
-                                                <li><a href="#" accesskey="3" title="">Photos</a></li>
-                                                <li><a href="#" accesskey="4" title="">about</a></li>
-                                                <li><a href="#" accesskey="5" title="">Contact</a></li>
+                                                <li class="active"><a href="BlogList.php" accesskey="1" title="">Home</a></li>
+                                                <li><a href="profile.php" accesskey="2" title="">Profile</a></li>
+                                                <li><a href="BlogList.php" accesskey="3" title="">Blog</a></li> 
+                                                 <li><a href="VideoBlog.php" accesskey="4" title="">Video</a></li>
+                                                <li><a href="AboutPage.php" accesskey="5" title="">About Us</a></li>
                                         </ul>
                                 </div>
                         </div>
@@ -43,7 +43,7 @@
                                 <!-- start content -->
                                 <div id="content">
                                         <div class="post">
-                                                <h1 class="title">Welcome to our Blog Site</h1>
+                                                <h1 class="title"></h1>
 EOT;
 	}
 	

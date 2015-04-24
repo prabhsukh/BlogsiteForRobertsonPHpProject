@@ -1,6 +1,6 @@
 <?php
        // session_start();
-	require_once 'Layout.php';
+	require_once 'layout2.php';
 	echo start_page("edit here!");
 	echo start_body();
 	echo use_navigation();

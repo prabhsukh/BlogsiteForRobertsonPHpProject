@@ -11,12 +11,12 @@
     $dbname = "dbGroupProject";
 
     // Create connection
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
+   $conn = mysqli_connect($servername, $username, $password, $dbname);
     // Check connection
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
-    
+//    
    // #http://stackoverflow.com/questions/11480763/how-to-get-parameters-from-this-url-string
     $parts = parse_url($_SERVER['QUERY_STRING']);
     parse_str($parts['path'], $query);
@@ -68,7 +68,7 @@ mysqli_close($conn);
             }
             else
             {
-                echo "<a href='EditBlog.php'>Visit To Blog Page >>></a> ";
+                echo "<a href='BlogList.php'>Visit To Blog Page >>></a> ";
                   
             }
        

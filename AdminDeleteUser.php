@@ -15,6 +15,5 @@ if(isset($_GET['UserID']))
 	}
 }
 ?>
-
 </body>
 </html

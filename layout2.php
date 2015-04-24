@@ -38,16 +38,17 @@
                                         <ul>
                                                 <li class="active"><a href="BlogList.php$UserString" accesskey="1" title="">Home</a></li>
                                                 <li><a href="profile.php" accesskey="2" title="">Profile</a></li>
-                                                <li><a href="BlogList.php" accesskey="3" title="">Blog</a></li>
-                                                <li><a href="AddNewBlog.php" accesskey="4" title="">Add Blog</a></li>
-                                                <li><a href="#" accesskey="5" title="">About</a></li>
+                                                <li><a href="BlogList.php" accesskey="3" title="">Blog</a></li> 
+                                                 <li><a href="VideoBlog.php" accesskey="4" title="">Video</a></li>
+                                                <li><a href="FirstPage.php" accesskey="5" title="">About Us</a></li> 
+                         
                                         </ul>
                                 </div>
                       
                         <!-- end header 
                         <div id="gallery">
                                 <div id="top-photo">
-                                        <p><a href="#"><img src="images/img08.jpg" alt="" width="830" height="300" /></a></p>
+                                        <p><a href="#"><img src="images/img08.jpg" alt="" width="930" height="300" /></a></p>
                                 </div>
                         </div>-->
 
@@ -94,10 +95,10 @@ EOT;
                         </ul>-->
                         </li>
                         <li>
-                                <h2>Archives</h2>
+                                <h2>Menu</h2>
                                 <ul>
-                                        <li><a href="#">September</a> (23)</li>
-                                        <li><a href="#">August</a> (31)</li>
+                                        <li><a href="UploadVideo.php">Upload Video</a> (23)</li>
+                                        <li><a href="AddNewBlog.php">Add Blog</a> (31)</li>
                                         <li><a href="#">July</a> (31)</li>
                                         <li><a href="#">June</a> (30)</li>
                                         <li><a href="#">May</a> (31)</li>

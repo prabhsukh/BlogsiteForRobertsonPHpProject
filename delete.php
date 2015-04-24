@@ -14,8 +14,6 @@ if(isset($_GET['UserID']))
 		header('location:list.php');
 	}
 }
-
-
         echo after_content();
 	echo use_footer();
 	echo end_body();

@@ -19,7 +19,7 @@
     
     $nr = mysql_num_rows($resultSql); 
     if ($nr <= 0) {
-        echo "<a href=''><h1><marquee>New Update are Not Avialiables Yet!</h1>!</marquee></a>";
+        echo "<a href=''><h1><marquee direction='up'>New Update are Not Avialiables Yet!</h1>!</marquee></a>";
     }
     else
     {
@@ -106,10 +106,10 @@
                 .           '<a href="profile.php?userid='.$row['UserID'].'"><img width="100px" height="100px" src="'.$row['ProfileImageUrl'].'" /></a>'
                 .       '</td>'
                 .       '<td style="padding-bottom:30px;">'
-                .           '<a href="Blog.php?BlogID='.$row['BlogID'].'">'.$row['BlogMessage'].'</a>';
+                .           '<a href="BlogList.php?UserID='.$row['UserID'].'">'.$row['BlogMessage'].'</a>';
                 
                 if (isset($row['FilePath'])) {
-                    $outputList .= '<br /><img style="margin-top:15px;" width="200px" height="120px" src="'.$row['FilePath'].'" />';      
+                    $outputList .= '<br /><img style="margin-top:15px;" width="170px" height="200px" src="'.$row['FilePath'].'" />';      
                 }
                 $outputList .= '</td>'
                 .   '</tr>';

@@ -92,7 +92,7 @@
         $outputList = '<table>';
         while($row = mysql_fetch_array($query)){
             $outputList .='<tr style="vertical-align:top;border-top:2px;"><td style="padding-bottom:30px;"><a href="profile.php?userid='.$row['UserID'].'"><img width="100px" height="100px" src="'.$row['ProfileImageUrl'].'" /></a></td>'
-                .'<td style="padding-bottom:30px;"><a href="Blog.php?BlogID='.$row['BlogID'].'">'.$row['BlogMessage'].'</a></td></tr>';
+                .'<td style="padding-bottom:30px;"><a href="BlogList.php?BlogID='.$row['BlogID'].'">'.$row['BlogMessage'].'</a></td></tr>';
         }
         $outputList .='</table>';
 

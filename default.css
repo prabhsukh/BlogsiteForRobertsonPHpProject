@@ -286,3 +286,8 @@ width:280px;
 border:2px solid #963;
 transition: 800ms all ease;
 }
+.divItem1 {
+width: "440";
+height: "260";
+frameborder:"3";
+}

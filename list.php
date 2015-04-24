@@ -1,6 +1,4 @@
 <?php
- //session_start();
-
  require_once 'layout2.php';
     echo start_page("Welcome!");
     echo start_body();

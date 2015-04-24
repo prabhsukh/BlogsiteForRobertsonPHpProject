@@ -6,37 +6,9 @@
 	echo start_body();
 	echo use_navigation();
        
-   include 'config.php';
-   
-   if (isset($_POST['UserName']) && isset($_POST['Password'])) {
-    $myusername = $_POST['UserName']; 
-    $mypassword = $_POST['Password']; 
-
-    $myusername = stripslashes($myusername);
-    $mypassword = stripslashes($mypassword);
-    $myusername = mysql_real_escape_string($myusername);
-    $mypassword = mysql_real_escape_string($mypassword);
-    $sql="SELECT * FROM $tbl_name WHERE UserName='$myusername' and Password='$mypassword'";
-
-    $result=mysql_query($sql);
-    $count=mysql_num_rows($result);
-    
-    while ($row = mysql_fetch_assoc($result)) {
-        $_SESSION["UserID"] = $row['UserID'];
-        $_SESSION["UserName"] = $myusername;
-        header("location:profile.php");
-    }
-    
-    header ("loginpage.php");
-    echo '<span style="color:red;text-align:center;">Wrong Username or Password provided!</span>';
-   } 
+  
      
-?>
-      <html>
-    <head>
-        <title></title>
-    </head>
-    <body>
+?> 
 <table width="300" border="0" align="center" cellpadding="0" cellspacing="1">
 <tr>
 <form name="form1" method="post" action="loginpage.php">
@@ -72,12 +44,41 @@
 </td>
 </form>
 </tr>
-</table>
-</body>
-</html>  
-       
-   
+</table>  
 <?php 
+
+include 'config.php';
+   
+   if (isset($_POST['UserName']) && isset($_POST['Password'])) {
+    $myusername = $_POST['UserName']; 
+    $mypassword = $_POST['Password']; 
+
+    $myusername = stripslashes($myusername);
+    $mypassword = stripslashes($mypassword);
+    $myusername = mysql_real_escape_string($myusername);
+    $mypassword = mysql_real_escape_string($mypassword);
+    $sql="SELECT * FROM $tbl_name WHERE UserName='$myusername' and Password='$mypassword'";
+
+    $result=mysql_query($sql);
+    $count=mysql_num_rows($result);
+    
+    while ($row = mysql_fetch_assoc($result)) {
+        $_SESSION["UserID"] = $row['UserID'];
+        $_SESSION["UserName"] = $myusername;
+        $_SESSION["AccessLevelID"] = $row['AccessLevelID'];
+        
+        if ($row['AccessLevelID'] == '1') {
+            header("location:AdminHomePage.php");
+        }
+        else
+        {
+            header("location:FirstPage.php");
+        }
+    }
+    
+    header ("loginpage.php");
+    echo '<h2><span style="color:red; text-align:center;">Wrong Username or Password provided!</span></h2>';
+   } 
         echo after_content();
 	echo use_footer();
 	echo end_body();

@@ -28,7 +28,7 @@ Create TABLE tbUser (
 	primary key (UserID));
 ALTER TABLE tbUser auto_increment=1;
 INSERT INTO tbUser (FirstName, LastName, Gender, Email, City, PhoneNo, UserName, Password,ProfileImageUrl,AccessLevelID) VALUES
-	('Scott', 'Wachal', 'Male', 'scott34@gmail.com', 'Winnipeg', '204-345-7890', 'scott1', '12345','Pic/img.jpg',1),
+	('Scott', 'Wachal', 'Male', 'scott33@gmail.com', 'Winnipeg', '204-345-7890', 'scott1', '12345','Pic/img.jpg',1),
 	('Prabhjot', 'Kaur', 'Female', 'jot14@yahoo.com', 'Winnipeg', '209-342-7667', 'prabh1', '12345','Pic/img1.jpg',1),
 	('Sam', 'Smith', 'Male', 'sam45@yahoo.com', 'Calgary', '432-658-8796','sam1', '12345','Pic/img2.jpg',2),
 	('Gurneal', 'Singh', 'Male','G@ymail.com', 'Surrey', '604-657-0987', 'Gurneal1','12345','Pic/img3.jpg',2),
@@ -59,10 +59,9 @@ CREATE TABLE tbBlog (
 	primary key (BlogID)) ;
 ALTER TABLE tbBlog auto_increment=1;
 INSERT INTO tbBlog (UserID, BlogAccessID, BlogMessage) VALUES
-	(2,1, 'Good Morning Hello PHP wORLd!!Pr
-    ogramming IS FUN FUN FUN !!!!!'),
-	(3,2, 'How are you ?\r\n Hope you feel good !!'),
- (5,1, '<br><img src="Pic//imgblog1.jpg"/><h2>If you can read this</h2><p>you need to go check out the newest updates for Microsoft Certification.\n\http://www.microsoft.com/learning/en-us/exam-98-361.aspx
+	(2,1, 'Good Morning Welcome in PHP World'),
+	(10,2, 'Nice To See YOU !!'),
+ (5,1, '<br><img src="Pic//imgblog1.jpg" height="180" width="400" /><h2>If you can read this</h2><p>you need to go check out the newest updates for Microsoft Certification.\n\http://www.microsoft.com/learning/en-us/exam-98-361.aspx
 	The link above is for a specific tech certificate and it is likely the most important one you all need to concentrate on.  Ideally you want to be able to do all the material covered in this exam by the time you finish this course.
 	Note: We dont cover everything in it, so you do need to study external material to pass the exam, however, if you do good in the course, you wont have a problem filling in the missing pieces!
 	Check out this study guide for the exam, how far can you get in answering all the questions?ftp://ftp.certiport.com/Marketing/MTA/docs/MTA_SSG_SoftDev_individual_without_crop.pdf</p>'),
@@ -89,7 +88,7 @@ INSERT INTO tbBlog (UserID, BlogAccessID, BlogMessage) VALUES
 	<p>Once installed here are a few useful commands:</p><ul><li>git clone "insert address here" (getting the project)</li><li>git status (checking any changes between working directory and staging area)</li>
 	<li>git add -A (adds all files to a staging area)</li><li>git add -u (Adds all modified files to the staging area)</li><li>git commit (commits the work from the staging area to the local repository)</li><li>git commit -m "add comment here" (Commits the changes to the local repository with a comment)</li>
 	<li>git commit -am "add comments here" (Adds and commits to from the local repsoitory)</li><li>git push (local repsoitory pushes to the web)</li><li>git log (Shows all the list of commits)</li><li>git pull (gets the newest changes from the remote repository)</li></ul>'),
-	(8,2,'<br><p>Just a random funny picture of php coding!haha</p><img src="Pic//phpfunnyimg.jpg"/>'),
+	(8,2,'<br><p>Just a random picture of php coding!haha</p><img src="Pic//phpfunnyimg.jpg"/>'),
     (9,1,'<p>I thought this would be useful to post this!</p><img src="Pic//list_of_all_phptags.jpg"/>'),
     (10,1, '<h2>PHP Switch Statement</h2><p>Just as the PHP language “if…else” statement, you can use the “switch” statement to alter the flow of a program. In other words; conditional statements are used to perform actions on different conditions.\n\ 
     The switch statement is used to select one of many blocks of code to be executed.\n\Let’s look at a switch example:</p><img src="Pic//switchcasephp.jpg"/><p>We say the variable $X is 3. In the switch statement the blocks of code start with case or default. The case statements end with break.\n\
@@ -105,19 +104,46 @@ CREATE TABLE tbBlogAttachment (
 );
 ALTER TABLE tbBlogAttachment auto_increment=1;
 INSERT INTO tbBlogAttachment (BlogID, FileName, FilePath) VALUES
-	(1, 'img1.jpg', 'Pic/img1.jpg'),
-	(2, 'img2.jpg', 'Pic/img2.jpg');
+	(1, 'img31.jpg', 'Pic/img31.jpg'),
+    (1, 'img33.jpg', 'Pic/img33.jpg'),
+	(2, 'img32.jpg', 'Pic/img32.jpg');
 
+Create Table tbVideo
+(
+	VideoID int NOT NULL auto_increment, 
+    BlogID int,
+    FOREIGN KEY (BlogID) REFERENCES tbBlog(BlogID),
+    Name VARCHAR(200) NOT NULL,
+    Code VARCHAR(1000) NOT NULL,
+    primary key(VideoID)
+);
+ALTER TABLE tbVideo auto_increment=1;
+   INSERT INTO tbVideo (BlogID, Name, Code) 
+	values (3,'CSS Introduction','<iframe width="640" height="360" 
+     src="https://www.youtube.com/embed/4E-oepPPg7A?feature=player_detailpage" frameborder="3" allowfullscreen></iframe>'),
+     (2,'Second Video','<iframe width="640" height="360" 
+       src="https://www.youtube.com/embed/oIowZiM41kQ?feature=player_detailpage" frameborder="3" allowfullscreen></iframe>'),
+       (4,'PHP Introduction','<iframe width="640" height="360" 
+       src="https://www.youtube.com/embed/kY5P9sZqFas?feature=player_detailpage" frameborder="3" allowfullscreen></iframe>'),
+       (5,'PHP Installing XAMPP','<iframe width="640" height="360" 
+       src="https://www.youtube.com/embed/ArsbbtkF0ps?feature=player_detailpage" frameborder="3" allowfullscreen></iframe>'),
+      (6,'Learn PHP in 30 Days','<iframe width="640" height="360" 
+       src="https://www.youtube.com/embed/7TF00hJI78Y?feature=player_detailpage" frameborder="3" allowfullscreen></iframe>'), 
+       (7,'PHP and MySql Tutorial','<iframe width="640" height="360" 
+       src="https://www.youtube.com/embed/HiNn3lsaw5U?feature=player_detailpage" frameborder="3" allowfullscreen></iframe>'),
+     (8,'PHP and MVC','<iframe width="640" height="360" 
+       src="https://www.youtube.com/embed/Aw28-krO7ZM?feature=player_detailpage" frameborder="3" allowfullscreen></iframe>'),
+       (9,'Model View Controller','<iframe width="640" height="360" 
+       src="https://www.youtube.com/embed/qXRcVhWxuaU?feature=player_detailpage" frameborder="3" allowfullscreen></iframe>'),
+       (3,'PHP v.Ruby v.Python -Which One is the Best?','<iframe width="640" height="360" 
+       src="https://www.youtube.com/embed/VBm5m1-Eonw?feature=player_detailpage" frameborder="3" allowfullscreen></iframe>');
 
-
-
-    
     SELECT * FROM tbAccessLevel;
 	SELECT * FROM tbUser;
 	select * from tbBlog;
 	select * from tbBlogAttachment;
     select * from tbBlogAccess;
-   
+    SELECT * FROM tbVideo;
     
      /* First Store Procedure */
 DELIMITER $$
@@ -216,7 +242,7 @@ CALL spGetBlogAttachmentByID(2);
 					  values(user_id, blog_access_id,blogmessage);
                        end $$
                        delimiter ;
-       call spAddBlog(4,3,"Nice to see you here");
+      # call spAddBlog(4,3,"Nice to see you here");
        
        /* tbAttachement insert procedure*/
     
@@ -230,7 +256,7 @@ CALL spGetBlogAttachmentByID(2);
                             values(blog_id,filename,filepath);
 				end $$
                 DELIMITER ;
-		call spAddBlogAttachment(2,"img5.jpg","Pic//img5.jpg");
+		call spAddBlogAttachment(2,"img5.jpg","Pic//phpicon.jpg");
         
                /* Update Store procedures  */
 		DELIMITER $$
